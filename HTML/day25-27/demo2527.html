@@ -1,0 +1,133 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript">
+        function startTime()
+        {
+            var today=new Date();
+            var y=today.getFullYear();
+            var mo=today.getMonth();
+            var d=today.getDate();
+
+            var h=today.getHours();
+            var m=today.getMinutes();
+            var s=today.getSeconds();
+// add a zero in front of numbers<10
+            mo=checkTime(mo);
+            d=checkTime(d);
+            w=chechWeek(w);
+            m=checkTime(m);
+            s=checkTime(s);
+            document.getElementById('txt').innerHTML=y+"年 "+mo+"月 "+d+"日 "+w+" "+h+":"+m+":"+s;
+            t=setTimeout('startTime()',500);
+        }
+        function lastTime()
+        {
+            var today=new Date();
+
+            var y1=document.getElementById("year-select").innerText;
+            var mo1=document.getElementById("month-select").innerText;
+            var d1=document.getElementById("day-select").innerText;
+            var w1=
+            var h1=document.getElementById("hour-select").innerText;
+            var m1=document.getElementById("minite-select").innerText;
+            var s1=document.getElementById("second-select").innerText;
+
+            var y=today.getFullYear()-y1;
+            var mo=today.getMonth()-mo1;
+            var d=today.getDate()-d1;
+            var h=today.getHours()-h1;
+            var m=today.getMinutes()-m1;
+            var s=today.getSeconds()-s1;
+// add a zero in front of numbers<10
+            mo1=checkTime(mo1);
+            d1=checkTime(d1);
+            m1=checkTime(m1);
+            s1=checkTime(s1);
+            mo=checkTime(mo);
+            d=checkTime(d);
+            m=checkTime(m);
+            s=checkTime(s);
+            document.getElementById('result-wrapper').innerHTML="现在距离"+y1+ "年"+mo1+"月"+d1+"日星期X"+ h1+":"+m1+":"+s1+"还有 X 天 X 小时 X 分 X 秒";
+            t=setTimeout('lastTime()',500);
+        }
+        function chechWeek(i) {
+            var k;
+           switch (i) {
+               case 0:k="星期天";
+                   break;
+               case 1:k="星期一";
+                   break;
+               case 2:k="星期二";
+                   break;
+               case 3:k="星期三";
+                   break;
+               case 4:k="星期四";
+                   break;
+               case 5:k="星期五";
+                   break;
+               case 6:k="星期六";
+                   break;
+               default:
+                   break;
+           }
+           return k;
+        }
+        function checkTime(i)
+        {
+            if (i<10)
+            {i="0" + i}
+            return i
+        }
+    </script>
+</head>
+
+<body onload="startTime()">
+<div id="txt"></div>
+
+<select id="year-select">
+    <option value="2000">2000</option>
+    <option value="2001">2001</option>
+    <option value="2002">2002</option>
+    ……
+    <option value="2032">2002</option>
+</select>
+
+<select id="month-select">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    ……
+    <option value="12">12</option>
+</select>
+
+<select id="day-select">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    ……
+    <option value="31">31</option>
+</select>
+
+<select id="hour-select">
+    <option value="0">00</option>
+    <option value="1">01</option>
+    ……
+    <option value="23">23</option>
+</select>
+
+<select id="minite-select">
+    <option value="0">0</option>
+    <option value="1">1</option>
+    ……
+    <option>59</option>
+</select>
+
+<select id="second-select">
+    <option value="0">0</option>
+    <option value="1">1</option>
+    ……
+    <option>59</option>
+</select>
+<input type="button" value="Go" onclick="lastTime()">
+<p id="result-wrapper">现在距离 2001年1月1日星期X HH:MM:SS 还有 X 天 X 小时 X 分 X 秒</p>
+</body>
+</html>

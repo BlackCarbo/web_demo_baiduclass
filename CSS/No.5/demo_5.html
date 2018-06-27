@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mydemo_5</title>
+    <style>
+        body{
+            margin-top: 150px;
+        }
+        #mycube{
+            perspective: 400px;
+        }
+        #cube{
+            transform-style: preserve-3d;
+            position: relative;
+            margin: 0 auto;
+            width: 200px;
+            height: 200px;
+            animation: collcube 8s linear infinite;
+            animation-play-state: paused;
+        }
+        .cube{
+            opacity: 0.3;
+            position: absolute;
+            outline: 3px solid #0af;
+            width: 200px;
+            height: 200px;
+        }
+        .face1{
+            background-color: #0000ff;
+            transform: translateZ(100px);
+            /*display: none;*/
+        }
+        .face2{
+            background-color: #00FF00;
+            transform: rotateY(180deg) translateZ(100px);
+            /*display: none;*/
+        }
+        .face3{
+            background-color: #ff0000;
+            transform: rotateY(90deg) translateZ(100px);
+            /*display: none;*/
+        }
+        .face4{
+            background-color: #00ffff;
+            transform: rotateY(-90deg) translateZ(100px);
+            /*display: none;*/
+        }
+        .face5{
+            background-color: #ff00ff;
+            transform: rotateX(90deg) translateZ(100px);
+            /*display: none;*/
+        }
+        .face6{
+            background-color: #ffff00;
+            transform: rotateX(-90deg) translateZ(100px);
+            /*display: none;*/
+        }
+        @keyframes collcube{
+            100%{transform: rotateY(-360deg);}
+        }
+        #cube:hover{
+            animation-play-state: running;
+        }
+    </style>
+</head>
+<body>
+<div id="mycube">
+    <div id="cube" >
+        <div class="cube face1"></div>
+        <div class="cube face2"></div>
+        <div class="cube face3"></div>
+        <div class="cube face4"></div>
+        <div class="cube face5"></div>
+        <div class="cube face6"></div>
+    </div>
+</div>
+
+</body>
+</html>

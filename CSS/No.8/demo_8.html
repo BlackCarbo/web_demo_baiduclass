@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mydemo_8</title>
+</head>
+<body>
+
+</body>
+<script src="https://unpkg.com/san@latest/dist/san.dev.js"></script>
+    var MyApp = san.defineComponent({
+    template: '<p>Hello {{name}}!</p>',
+    initData: function () {
+        return {
+            name: 'San'
+            };
+        }
+    });
+    var myApp = new MyApp();
+    myApp.attach(document.body);
+</html>

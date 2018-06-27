@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mypage1</title>
+    <style>
+        body{
+            position: static;
+            border: none;
+            margin: 0;
+            padding: 0;
+            top: 0;
+            min-width: 500px;
+        }
+        #pTop{
+            height: 50px;
+            background-color: #333333;
+        }
+        #pTop h1{
+            position: absolute;
+            margin-left: 15%;
+            margin-top: 0;
+            padding-top: 10px;
+            font-size: 20px;
+            color: #ffffff;
+        }
+        #pTop nav{
+            float: right;
+            margin-right: 15%;
+            margin-top: -15px;
+        }
+        #pTop li{
+            float: left;
+            margin: 0 5px;
+            list-style-type: none;
+        }
+        #pTop a{
+            display: block;
+            color: #FFFFFF;
+        }
+        #pBox_1{
+            height: 150px;
+            background-color: #66bb33;
+        }
+        .mainTil{
+            display: table;
+            position: absolute;
+            /*border: 2px solid black;*/
+            width: 200px;
+            /*height: 100px;*/
+            right: 15%;
+            top: 150px;
+        }
+        .til{
+            display: block;
+            float: right;
+            border: 2px solid white;
+            margin-right: 5px;
+            padding: 2px;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            background-color: #b2dd99;
+        }
+        .til:hover{
+            height: 40px;
+            background-color: #e0f1d6;
+        }
+        #pBox_2{
+            height: 640px;
+            width: 100%;
+            background-color: #FFFFFF;
+        }
+        .aaa{
+            float: left;
+            width: 100%;
+            height: 80px;
+            border-bottom: 1px solid #cdcdcd;
+        }
+        .mainTi2{
+            margin-left: 15%;
+            margin-top: 30px;
+            z-index: -10;
+        }
+        .ti2{
+            float: left;
+            width: 100px;
+            height: 50px;
+            border: 1px solid #cdcdcd;
+            border-radius:15px 15px 0 0;
+            /*border-width: 2px 2px 2px 2px;*/
+            text-align: center;
+            line-height: 50px;
+            background-color: #eeeeee;
+        }
+        .ti2:hover{
+            background-color: #FFFFFF;
+            border-width: 1px 1px 0 1px;
+        }
+        .mainTi2 .home{
+
+        }
+        .mainLay{
+            clear: both;
+            height: 550px;
+            margin:20px 0;
+            /*border: 2px solid #cdcdcd;*/
+            padding-left: 15%;
+            padding-right: 15%;
+            clear: both;
+            z-index: 5;
+        }
+        .lay{
+            border: 1px solid #cfcfcf;
+            height: 100px;
+            margin-top: 10px;
+            text-align: center;
+            padding-top: 60px;
+        }
+        .l1,.l2,.l3,.l8,.l9,.l10{
+            float: left;
+            width: 32%;
+
+        }
+        .l4,.l5,.l6,.l7{
+            float: left;
+            width: 23.6%;
+        }
+        .bk{
+            float: left;
+            width: 1%;
+            border: none;
+        }
+
+        #pButton{
+            height: 100px;
+            background-color: #666666;
+        }
+        .bot{
+            padding-top: 10px;
+            text-align: center;
+            color: #FFFFFF;
+        }
+
+    </style>
+    <script>
+
+    </script>
+</head>
+<body>
+<div id="pTop">
+    <h1>Logo</h1>
+    <nav>
+        <ul>
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Register</a></li>
+            <li><a href="#">Login</a></li>
+        </ul>
+    </nav>
+</div>
+<div id="pBox_1">
+    <div class="mainTil">
+        <div class="til b4">4</div>
+        <div class="til b3">3</div>
+        <div class="til b2">2</div>
+        <div class="til b1">1</div>
+    </div>
+</div>
+<div id="pBox_2">
+    <div class="aaa">
+        <div class="mainTi2">
+            <div class="ti2 home">HOME</div>
+            <div class="ti2 profile">PROFILE</div>
+            <div class="ti2 about">ABOUT</div>
+        </div>
+    </div>
+
+    <div class="mainLay">
+        <div>
+            <div class="lay l1">This is Content 1</div>
+            <div class="lay bk"></div>
+            <div class="lay l2">MaybeContent 2</div>
+            <div class="lay bk"></div>
+            <div class="lay l3">Content 3</div>
+        </div>
+        <div>
+            <div class="lay l4">Content 4</div>
+            <div class="lay bk"></div>
+            <div class="lay l5">Content 5</div>
+            <div class="lay bk"></div>
+            <div class="lay l6">Content 6</div>
+            <div class="lay bk"></div>
+            <div class="lay l7">Content 7</div>
+        </div>
+        <div>
+            <div class="lay l8">Content 8</div>
+            <div class="lay bk"></div>
+            <div class="lay l9">Content 9</div>
+            <div class="lay bk"></div>
+            <div class="lay l10">Content 10</div>
+        </div>
+
+    </div>
+</div>
+<div id="pButton">
+    <div class="bot">@ 2018 FishFly.baidu.com</div>
+</div>
+</body>
+</html>

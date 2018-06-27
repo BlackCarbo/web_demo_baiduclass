@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mydemo_2</title>
+    <style type="text/css">
+        #mainpage p{
+            user-select:none;
+        }
+        #box0,#box1,#box2,#box3,#box4,#box5{
+            float: left;
+            width: 100px;
+            height: 100px;
+            boder: 5px;
+            margin: 20px;
+            border-color: grey;
+            border-style: solid;
+            transform:none;
+
+        }
+        #box1{
+            transform:skew(30deg);
+        }
+        #box2{
+            transform:scaleX(0.5);
+        }
+        #box3{
+            transform:rotate(30deg) scale(0.5);
+        }
+        #box4{
+            transform:translateY(10px);
+        }
+        #box5{
+            transform:skew(30deg) scaleX(0.5) rotate(30deg) scale(0.5) translateY(10px);
+        }
+    </style>
+    <script type="text/javascript">
+        function trans1() {
+            var b1=document.getElementById('box1');
+            if(b1.style.transform=='none'){
+                b1.style.transform='skew(30deg)';
+            }else{
+                b1.style.transform='none';
+            }
+        }
+        function trans2() {
+            var b2=document.getElementById('box2');
+            if(b2.style.transform=='none'){
+                b2.style.transform='scaleX(0.5)';
+            }else{
+                b2.style.transform='none';
+            }
+        }
+        function trans3() {
+            var b3=document.getElementById('box3');
+            if(b3.style.transform=='none'){
+                b3.style.transform='rotate(30deg) scale(0.5)';
+            }else{
+                b3.style.transform='none';
+            }
+        }
+        function trans4() {
+            var b4=document.getElementById('box4');
+            if(b4.style.transform=='none'){
+                b4.style.transform='translateY(10px)';
+            }else{
+                b4.style.transform='none';
+            }
+        }
+        function trans5() {
+            var b5=document.getElementById('box5');
+            if(b5.style.transform=='none'){
+                b5.style.transform='skew(30deg) scaleX(0.5) rotate(30deg) scale(0.5) translateY(10px)';
+            }else{
+                b5.style.transform='none';
+            }
+        }
+    </script>
+</head>
+<body>
+<div style="width: 1000px;height:300px;margin: 200px auto" align="center">
+    <p style="text-align: left">Demo&nbsp;2</p>
+    <div id="mainpage" style="width: 1000px;height:300px;border-style: solid; border-color: black" align="center">
+        <div id="box0" align="center">
+            <p style="margin-top: 40px">box0</p>
+        </div>
+        <div id="box1" align="center" onclick="trans1()">
+            <p style="margin-top: 40px">box1</p>
+        </div>
+        <div id="box2" align="center" onclick="trans2()">
+            <p style="margin-top: 40px">box2</p>
+        </div>
+        <div id="box3" align="center" onclick="trans3()">
+            <p style="margin-top: 40px">box3</p>
+        </div>
+        <div id="box4" align="center" onclick="trans4()">
+            <p style="margin-top: 40px">box4</p>
+        </div>
+        <div id="box5" align="center" onclick="trans5()">
+            <p style="margin-top: 40px">box5</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

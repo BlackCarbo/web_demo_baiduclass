@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mydemo_4</title>
+    <style>
+        .card{
+            position: absolute;
+            transition-duration: 1s;
+            /*left:40%;*/
+        }
+        .face{
+            backface-visibility: hidden;
+        }
+        .back{
+            transform: rotateY(-180deg);
+            backface-visibility: hidden;
+        }
+        #card:hover .face{
+            transform: rotateY(180deg);
+        }
+        #card:hover .back{
+            transform: rotateY(0deg);
+        }
+    </style>
+    <script>
+        function cent() {
+            var w = document.getElementById('card').style.width;
+            document.getElementById('card').style.transform='translateX(-125px)';
+        }
+
+    </script>
+</head>
+<body onload="cent()">
+<div align="center" >
+    <div style="width: 300px;height:500px;border-style: solid;border-color: black">
+        <p style="text-align: left">Demo&nbsp;4</p>
+        <div id="card">
+            <img class="card face" src="face.jpg">
+            <img class="card back" src="back.jpg">
+        </div>
+    </div>
+</div>
+</body>
+</html>

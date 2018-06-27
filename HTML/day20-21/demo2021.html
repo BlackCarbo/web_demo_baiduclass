@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>IFE ECMAScript</title>
+    <style>
+        select {
+            display: none;
+        }
+        .palette {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .palette li {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #000;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div style="float: left;">
+    <label>
+        <input id="school" name="status" type="radio" value="s" onclick="showSelect(this.value)">
+        School
+    </label>
+    <label>
+        <input id="company" name="status" type="radio" value="c" onclick="showSelect(this.value)">
+        Company
+    </label>
+
+    <select id="school-select">
+        <option>北京邮电大学</option>
+        <option>黑龙江大学</option>
+        <option>华中科技大学</option>
+    </select>
+
+    <select id="company-select">
+        <option>百度</option>
+        <option>爱奇艺</option>
+    </select>
+</div>
+<div style="float: left;width: 200px;margin: 20px 40px;">
+    <ul class="palette">
+        <li style="background-color:crimson"></li>
+        <li style="background-color:bisque"></li>
+        <li style="background-color:blueviolet"></li>
+        <li style="background-color:coral"></li>
+        <li style="background-color:chartreuse"></li>
+        <li style="background-color:darkolivegreen"></li>
+        <li style="background-color:cyan"></li>
+        <li style="background-color:#194738"></li>
+    </ul>
+    <p class="color-picker"></p>
+</div>
+<div style="float: left">
+    <div id="fade-obj" style="width:300px;height:300px;background:#000;transition-duration: 2s"></div>
+    <button id="fade-btn" onclick="lighout()">淡出</button>
+</div>
+
+<script>
+    var list = document.querySelectorAll("li");
+    for (var i = 0, len = list.length; i < len; i++) {
+        list[i].onclick = function(e) {
+            var t = e.target;
+            var c = t.style.backgroundColor;
+            var p = document.getElementsByClassName("color-picker")[0]
+            p.innerHTML = c;
+            p.style.color = c;
+
+        }
+    }
+    function lighout() {
+        var box=document.getElementById("fade-obj");
+        var iot=document.getElementById("fade-btn")
+        if(iot.innerText=="淡出"){
+            box.style.opacity="0";
+            iot.innerText="淡入";
+        }else{
+            box.style.opacity="1";
+            iot.innerText="淡出";
+        }
+
+    }
+    function showSelect(a) {
+
+        if(a =='s'){
+            document.getElementById("school-select").style.display="block";
+            document.getElementById("company-select").style.display="none";
+            // alert(list.length);
+        }else if(a=='c'){
+            document.getElementById("school-select").style.display="none";
+            document.getElementById("company-select").style.display="block";
+            // alert("Company");
+        }else{
+            alert("error");
+        }
+    }
+</script>
+</body>
+</html>

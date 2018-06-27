@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mydemo_1</title>
+    <style type="text/css">
+        #line{
+            width: 0;
+            height: 5px;
+            margin: 0 auto;
+            background-color: dodgerblue;
+            transition: width 0.3s;
+            -moz-transition: width 0.3s; /* Firefox 4 */
+            -webkit-transition: width 0.3s; /* Safari and Chrome */
+            -o-transition: width 0.3s; /* Opera */
+        }
+        .mybutton{
+            width: 100px;
+            height: 50px;
+            border-radius: 10px;
+            background-color: #FFFFFF;
+            margin: 20px auto;
+            outline: none;
+        }
+    </style>
+    <script type="text/javascript">
+        function changestyle() {
+            var w=document.getElementById('tob');
+            if(w.style.color=='black'){
+                document.getElementById('line').style.cssText='width:300px;transition: width 0.3s;';
+                w.style.color='dodgerblue';
+            }else{
+                document.getElementById('line').style.cssText='width:0px;transition: width 0.3s;';
+                w.style.color='black';
+            }
+        }
+    </script>
+</head>
+<body>
+<div style="width: 300px;margin: 200px auto" align="center">
+    <p style="text-align: left">Demo&nbsp;1</p>
+    <div id="mainpage" style="width: 300px;border-style: solid; border-color: black" align="center">
+        <h1 id="tob" style="color: black; text-align: center">Front-End School</h1>
+        <div id="line"></div>
+        <input class="mybutton" type="button" value="Change Style" onclick="changestyle()">
+    </div>
+</div>
+</body>
+</html>
