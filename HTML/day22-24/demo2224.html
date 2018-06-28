@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mydemo</title>
+    <style>
+        #t1{
+            width: 100%;
+        }
+        .n1,.n2,.n3,.n4,.n5{
+            width: 600px;
+            margin: 5px 40px;
+        }
+        .button{
+            display: block;
+            margin: 5px 40px;
+        }
+        p{
+            margin-left: 500px;
+        }
+
+    </style>
+    <script>
+        function f_n1_1() {
+            let numb = document.getElementsByName("math-obj");
+            let result = document.getElementById("result1");
+            let na = document.getElementById("num1-a");
+            let nb = document.getElementById("num1-b");
+            let reg = /^[0-9]+.?[0-9]*$/;
+           if(numb[0].checked){
+               if(reg.test(na.value)){
+                   result.innerHTML="是数字";
+               }else{
+                   result.innerHTML="不是数字";
+               }
+           }
+           else if(numb[1].checked){
+               if(reg.test(nb.value)){
+                   result.innerHTML="是数字";
+               }else{
+                   result.innerHTML="不是数字";
+               }
+           }
+        }
+        function f_n1_2() {
+            let numb = document.getElementsByName("math-obj");
+            let result = document.getElementById("result1");
+            let na = document.getElementById("num1-a");
+            let nb = document.getElementById("num1-b");
+            result.innerHTML=Number(na.value).toFixed(nb.value);
+        }
+        function f_n1_3() {
+            let numb = document.getElementsByName("math-obj");
+            let result = document.getElementById("result1");
+            let na = document.getElementById("num1-a");
+            let nb = document.getElementById("num1-b");
+            if(numb[0].checked){
+                result.innerHTML = Math.abs(na.value);
+            }
+            else if(numb[1].checked){
+                result.innerHTML = Math.abs(nb.value);
+            }
+        }
+        function f_n1_4() {
+            let numb = document.getElementsByName("math-obj");
+            let result = document.getElementById("result1");
+            let na = document.getElementById("num1-a");
+            let nb = document.getElementById("num1-b");
+            if(numb[0].checked){
+                result.innerHTML = Math.ceil(na.value);
+            }
+            else if(numb[1].checked){
+                result.innerHTML = Math.ceil(nb.value);
+            }
+        }
+        function f_n1_5() {
+            let numb = document.getElementsByName("math-obj");
+            let result = document.getElementById("result1");
+            let na = document.getElementById("num1-a");
+            let nb = document.getElementById("num1-b");
+            if(numb[0].checked){
+                result.innerHTML = Math.floor(na.value);
+            }
+            else if(numb[1].checked){
+                result.innerHTML = Math.floor(nb.value);
+            }
+        }
+        function f_n1_6() {
+            let numb = document.getElementsByName("math-obj");
+            let result = document.getElementById("result1");
+            let na = document.getElementById("num1-a");
+            let nb = document.getElementById("num1-b");
+            if(numb[0].checked){
+                result.innerHTML = Math.round(na.value);
+            }
+            else if(numb[1].checked){
+                result.innerHTML = Math.round(nb.value);
+            }
+        }
+        function f_n1_7() {
+            let numb = document.getElementsByName("math-obj");
+            let result = document.getElementById("result1");
+            let na = document.getElementById("num1-a");
+            let nb = document.getElementById("num1-b");
+            result.innerHTML = (na.value>nb.value? na.value:nb.value);
+        }
+        function f_n1_8() {
+            let numb = document.getElementsByName("math-obj");
+            let result = document.getElementById("result1");
+            let na = document.getElementById("num1-a");
+            let nb = document.getElementById("num1-b");
+            result.innerHTML = (na.value<nb.value? na.value:nb.value);
+        }
+
+        function f_n2_1() {
+            let stro = document.getElementsByName("str-obj");
+            let result = document.getElementById("result2");
+            let sa = document.getElementById("str-a");
+            let sb = document.getElementById("str-b");
+            if(stro[0].checked){
+                result.innerHTML = sa.value.length;
+            }
+            else if(stro[1].checked){
+                result.innerHTML = sb.value.length;
+            }
+        }
+        function f_n2_2() {
+            let stro = document.getElementsByName("str-obj");
+            let result = document.getElementById("result2");
+            let sa = document.getElementById("str-a");
+            let sb = document.getElementById("str-b");
+            if(stro[0].checked){
+                result.innerHTML = sa.value[2];
+            }
+            else if(stro[1].checked){
+                result.innerHTML = sb.value[2];
+            }
+        }
+        function f_n2_3() {
+            let stro = document.getElementsByName("str-obj");
+            let result = document.getElementById("result2");
+            let sa = document.getElementById("str-a");
+            let sb = document.getElementById("str-b");
+            result.innerHTML = "".concat(sa.value+sb.value);
+        }
+        function f_n2_4() {
+            let stro = document.getElementsByName("str-obj");
+            let result = document.getElementById("result2");
+            let sa = document.getElementById("str-a");
+            let sb = document.getElementById("str-b");
+            result.innerHTML = sa.value.indexOf(sb.value) + 1;
+        }
+        function f_n2_5() {
+            let stro = document.getElementsByName("str-obj");
+            let result = document.getElementById("result2");
+            let sa = document.getElementById("str-a");
+            let sb = document.getElementById("str-b");
+            result.innerHTML = sb.value.lastIndexOf(sa.value) + 1;
+        }
+        function f_n2_6() {
+            let stro = document.getElementsByName("str-obj");
+            let result = document.getElementById("result2");
+            let sa = document.getElementById("str-a");
+            let sb = document.getElementById("str-b");
+            let na =document.getElementById("num2-a")
+            let nb =document.getElementById("num2-b")
+            if(stro[0].checked){
+                result.innerHTML = sa.value.slice(na.value-1,nb.value-1);
+            }
+            else if(stro[1].checked){
+                result.innerHTML = sb.value.slice(na.value-1,nb.value-1);
+            }
+        }
+        function f_n2_7() {
+            let stro = document.getElementsByName("str-obj");
+            let result = document.getElementById("result2");
+            let sa = document.getElementById("str-a");
+            let sb = document.getElementById("str-b");
+            if(stro[0].checked){
+                result.innerHTML = sa.rows;
+            }
+            else if(stro[1].checked){
+                result.innerHTML = sb.rows;
+            }
+        }
+        function f_n2_8() {
+            let stro = document.getElementsByName("str-obj");
+            let result = document.getElementById("result2");
+            let sa = document.getElementById("str-a");
+            let sb = document.getElementById("str-b");
+            let na =document.getElementById("num2-a")
+            let nb =document.getElementById("num2-b")
+            if(stro[0].checked){
+                result.innerHTML = sa.value.substr(na.value-1,nb.value);
+            }
+            else if(stro[1].checked){
+                result.innerHTML = sb.value.substr(na.value-1,nb.value);
+            }
+        }
+        function f_n2_9() {
+            let stro = document.getElementsByName("str-obj");
+            let result = document.getElementById("result2");
+            let sa = document.getElementById("str-a");
+            let sb = document.getElementById("str-b");
+            if(stro[0].checked){
+                result.innerHTML = sa.value.toUpperCase();
+            }
+            else if(stro[1].checked){
+                result.innerHTML = sb.value.toUpperCase();
+            }
+        }
+        function f_n2_10() {
+            let stro = document.getElementsByName("str-obj");
+            let result = document.getElementById("result2");
+            let sa = document.getElementById("str-a");
+            let sb = document.getElementById("str-b");
+            if(stro[0].checked){
+                result.innerHTML = sa.value.toLowerCase();
+            }
+            else if(stro[1].checked){
+                result.innerHTML = sb.value.toLowerCase();
+            }
+        }
+        function f_n2_11() {
+            let stro = document.getElementsByName("str-obj");
+            let result = document.getElementById("result2");
+            let sa = document.getElementById("str-a");
+            let sb = document.getElementById("str-b");
+            if(stro[0].checked){
+                result.innerHTML = sa.value.replace(/(^\s*)|(\s*$)/g, "");
+            }
+            else if(stro[1].checked){
+                result.innerHTML = sb.value.replace(/(^\s*)|(\s*$)/g, "");
+            }
+        }
+        function f_n2_12() {
+            let stro = document.getElementsByName("str-obj");
+            let result = document.getElementById("result2");
+            let sa = document.getElementById("str-a");
+            let sb = document.getElementById("str-b");
+            sa.value = sb.value;
+        }
+
+        function diyTrim(str) {
+            let result = "";
+            result = str.replace(/(^\s*)|(\s*$)/g, "");
+            return result
+            // 测试用例
+            // console.log(diyTrim(' a f b    ')); // ->a f b
+            // console.log(diyTrim('    ffdaf    ')); // ->ffdaf
+            // console.log(diyTrim('1    ')); // ->1
+            // console.log(diyTrim('　　f')); // ->f
+            // console.log(diyTrim('  　  a f b 　　 ')); // ->a f b
+            // console.log(diyTrim(' ')); // ->
+            // console.log(diyTrim('　')); // ->
+            // console.log(diyTrim('')); // ->
+        }
+        function removeRepetition(str) {
+            let result = "";
+            let l = str.length;
+            result = str[0];
+            for(let i=1;i<l-1;i++){
+                if(result[result.length-1] !== str[i]){
+                    result += str[i];
+                }
+            }
+            return result;
+            // 测试用例
+            // console.log(removeRepetition("aaa")); // ->a
+            // console.log(removeRepetition("abbba")); // ->aba
+            // console.log(removeRepetition("aabbaabb")); // ->abab
+            // console.log(removeRepetition("")); // ->
+            // console.log(removeRepetition("abc")); // ->abc
+        }
+
+        let tree = {
+            "id": 0,
+            "name": "root",
+            "left": {
+                "id": 1,
+                "name": "Simon",
+                "left": {
+                    "id": 3,
+                    "name": "Carl",
+                    "left": {
+                        "id": 7,
+                        "name": "Lee",
+                        "left": {
+                            "id": 11,
+                            "name": "Fate"
+                        }
+                    },
+                    "right": {
+                        "id": 8,
+                        "name": "Annie",
+                        "left": {
+                            "id": 12,
+                            "name": "Saber"
+                        }
+                    }
+                },
+                "right": {
+                    "id": 4,
+                    "name": "Tony",
+                    "left": {
+                        "id": 9,
+                        "name": "Candy"
+                    }
+                }
+            },
+            "right": {
+                "id": 2,
+                "name": "right",
+                "left": {
+                    "id": 5,
+                    "name": "Carl",
+                },
+                "right": {
+                    "id": 6,
+                    "name": "Carl",
+                    "right": {
+                        "id": 10,
+                        "name": "Kai"
+                    }
+                }
+            }
+        }
+
+        // 假设id和name均不会重复，根据输入name找到对应的id
+        function findIdByName(name) {
+            let t = tree;
+            let n = name;
+            // console.log(n);
+            function findName(t,n) {
+                if(t){
+                    if(t.name === n){
+                        console.log(t.id);
+                    }else{
+                        findName(t.left,n);
+                        findName(t.right,n);
+                    }
+                }
+            }
+            findName(t,n);
+        }
+
+        // 假设id和name均不会重复，根据输入id找到对应的name
+        function findNameById(id) {
+            let t = tree;
+            let i = id;
+            // console.log(i);
+            function findId(t,i) {
+                if(t){
+                    if(t.id == i){
+                        console.log(t.name);
+                    }else{
+                        findId(t.left,i);
+                        findId(t.right,i);
+                    }
+                }
+            }
+            findId(t,i);
+        }
+
+        // 把这个对象中所有的名字以“前序遍历”的方式全部输出到console中
+        function getListWithDLR(t) {
+            if(t){
+                console.log(t.name);
+                getListWithDLR(t.left);
+                getListWithDLR(t.right)
+            }
+        }
+
+        // 把这个对象中所有的名字以“中序遍历”的方式全部输出到console中
+        function getListWithLDR(t) {
+            if(t){
+                getListWithLDR(t.left);
+                console.log(t.name);
+                getListWithLDR(t.right)
+            }
+        }
+
+        // 把这个对象中所有的名字以“后序遍历”的方式全部输出到console中
+        function getListWithLRD(t) {
+            if(t){
+                getListWithLRD(t.left);
+                getListWithLRD(t.right)
+                console.log(t.name);
+            }
+        }
+
+        let queue = ["apple", "pear"];
+
+        function pushQueue() {
+            let newItem = document.getElementById("queue-input");
+            let newQueue = document.getElementById("queue-cont");
+            let str = "队列内容："+queue[0];
+             queue.push(newItem.value);
+            for(let i=1;i<queue.length;i++){
+                str += `->${queue[i]}`;
+            }
+            newQueue.innerText = str;
+        }
+        function popQueue() {
+            let newQueue = document.getElementById("queue-cont");
+            if(!isEmpty()){
+                let str = "队列内容："+queue[0];
+                queue.splice(queue.length-1,1);
+                for(let i=1;i<queue.length;i++){
+                    str += `->${queue[i]}`;
+
+                }
+                // console.log(queue.length);
+                newQueue.innerText = str;
+                if(queue.length<1){
+                    newQueue.innerText = "Empty";
+                }
+            }
+
+        }
+        function showHead() {
+            let newQueue = document.getElementById("queue-cont");
+            let str = "队头内容："+queue[0];
+            newQueue.innerText = str;
+        }
+        function isEmpty() {
+            let newQueue = document.getElementById("queue-cont");
+            let str = "Empty";
+            if(queue.length<1){
+                newQueue.innerText = str;
+                return 1;
+            }
+            else{
+                newQueue.innerText = "Not Empty"
+                return 0;
+            }
+        }
+
+        let arr1 = [43, 54, 4, -4, 84, 100, 58, 27, 140];
+        let arr2 = ['apple', 'dog', 'cat', 'car', 'zoo', 'orange', 'airplane'];
+        let arr3 = [[10, 14], [16, 60], [7, 44], [26, 35], [22, 63]];
+        let arr4 = [
+            {
+                id: 1,
+                name: 'candy',
+                value: 40
+            }, {
+                id: 2,
+                name: 'Simon',
+                value: 50
+            }, {
+                id: 3,
+                name: 'Tony',
+                value: 45
+            }, {
+                id: 4,
+                name: 'Annie',
+                value: 60
+            }
+        ];
+        
+        function sort1() {
+            let s = "";
+            s = arr1.sort(function(a,b){return a - b});
+            console.log(s);
+        }
+        function sort2() {
+            let s = "";
+            s = arr2.sort();
+            console.log(s);
+        }
+        function sort3() {
+            let s = "";
+            s = arr2.sort().reverse();
+            console.log(s);
+        }
+        function sort4() {
+            let s = "";
+            s = arr3.sort(function(a,b){return a[1] - b[1]});
+            console.log(s);
+        }
+        function sort5() {
+            let s = "";
+            s = arr4.sort(function(a,b){return a.value - b.value});
+            console.log(s);
+        }
+
+        let scoreObject = {
+            "Tony": {
+                "Math": 95,
+                "English": 79,
+                "Music": 68
+            },
+            "Simon": {
+                "Math": 100,
+                "English": 95,
+                "Music": 98
+            },
+            "Annie": {
+                "Math": 54,
+                "English": 65,
+                "Music": 88
+            }
+        };
+        let menuArr = [
+            [1, "Area1", -1],
+            [2, "Area2", -1],
+            [3, "Area1-1", 1],
+            [4, "Area1-2", 1],
+            [5, "Area2-1", 2],
+            [6, "Area2-2", 2],
+            [7, "Area1-2-3", 4],
+            [8, "Area2-2-1", 6],
+        ];
+
+        function obj2arr() {
+            let arr1 = [];
+            for(let i in scoreObject){
+                let arr2 = [];
+                arr2.push(i);
+                for(let j in scoreObject[i]){
+                    arr2.push(scoreObject[i][j]);
+                }
+                arr1.push(arr2);
+            }
+
+            console.log(arr1);
+        }
+        function arr2obj() {
+            var menuObject = {};
+            menuArr.forEach((current,index) => {
+                if(current[2] == -1){
+                    menuObject[current[0]]={
+                        "name":current[1],
+                        "subMenu":{}
+                    }
+                }
+                if(current[2] == 1){
+                    menuObject["1"]["subMenu"][current[0]]={
+                        "name":current[1],
+                        "subMenu":{}
+                    }
+                }
+                if(current[2] == 2){
+                    menuObject["2"]["subMenu"][current[0]] = {
+                        "name" : current[1],
+                        "subMenu": {}
+                    }
+                }
+                if(current[2] == 4){
+                    menuObject["1"]["subMenu"]["4"]["subMenu"][current[0]] = {
+                        "name" : current[1],
+                        "subMenu": {}
+                    }
+                }
+                if(current[2] == 6){
+                    menuObject["2"]["subMenu"]["6"]["subMenu"][current[0]] = {
+                        "name" : current[1],
+                        "subMenu": {}
+                    }
+                }
+            })
+            console.log(menuObject);
+        }
+    </script>
+
+</head>
+<body>
+<div id="t1">
+    <p><-----------N-1------------></p>
+    <div>
+        <label>Number A:<input id="radio1-a" type="radio" name="math-obj" value="a"></label><input id="num1-a" type="text">
+        <label>Number B:<input id="radio1-b" type="radio" name="math-obj" value="b"></label><input id="num1-b" type="text">
+    </div>
+    <div class="n1">
+        <button class="button n1_1" onclick="f_n1_1()">判断当前选中的输入框输入内容是否为数字</button>
+        <button class="button n1_2" onclick="f_n1_2()">把 A 四舍五入为 B 个小数位数的数字</button>
+        <button class="button n1_3" onclick="f_n1_3()">当前选中数字的绝对值</button>
+        <button class="button n1_4" onclick="f_n1_4()">对当前选中的数字进行上舍入</button>
+        <button class="button n1_5" onclick="f_n1_5()">对当前选中的数字进行下舍入</button>
+        <button class="button n1_6" onclick="f_n1_6()">把当前选中的数字四舍五入为最接近的整数</button>
+        <button class="button n1_7" onclick="f_n1_7()">返回 A 和 B 中的最高值</button>
+        <button class="button n1_8" onclick="f_n1_8()">返回 A 和 B 中的最低值</button>
+    </div>
+    <p id="result1">result1</p>
+</div>
+<div id="t2">
+    <p><-----------N-2------------></p>
+    <div>
+        <label>String A:
+            <input id="radio2-a" type="radio" checked="true" name="str-obj" value="a">
+        </label>
+        <textarea id="str-a"></textarea>
+        <label>String B:
+            <input id="radio2-b" type="radio" name="str-obj" value="b">
+        </label>
+        <textarea id="str-b"></textarea>
+        <label>Num A：<input id="num2-a" type="number" value="0"></label>
+        <label>Num B：<input id="num2-b" type="number" value="1"></label>
+    </div>
+    <div class="n2">
+        <button class="button n2_1" onclick="f_n2_1()">获取当前选中输入的内容长度</button>
+        <button class="button n2_2" onclick="f_n2_2()">当前选中输入中的第3个字符</button>
+        <button class="button n2_3" onclick="f_n2_3()">把两个输入框的文字连接在一起输出（concat）</button>
+        <button class="button n2_4" onclick="f_n2_4()">输入B中的内容，在输入A的内容中第一次出现的位置（indexOf）</button>
+        <button class="button n2_5" onclick="f_n2_5()">输入A中的内容，在输入B的内容中最后一次出现的位置（lastIndexOf）</button>
+        <button class="button n2_6" onclick="f_n2_6()">使用slice获取选中输入框内容的部分内容，参数为num-a及num-b</button>
+        <button class="button n2_7" onclick="f_n2_7()">当前选中输入框的行数</button>
+        <button class="button n2_8" onclick="f_n2_8()">使用substr获取选中输入框内容的子字符串，参数为num-a及num-b</button>
+        <button class="button n2_9" onclick="f_n2_9()">把所选输入框中的内容全部转为大写</button>
+        <button class="button n2_10" onclick="f_n2_10()">把所选输入框中的内容全部转为小写</button>
+        <button class="button n2_11" onclick="f_n2_11()">把所选输入框中内容的半角空格全部去除</button>
+        <button class="button n2_12" onclick="f_n2_12()">把所选输入框中内容的a全部替换成另外一个输入框中的内容</button>
+    </div>
+    <p id="result2">result2</p>
+</div>
+<div id="t3">
+    <p><-----------N-3------------></p>
+    <div class="n3">
+        <input type="button" value="去除空格" onclick="console.log(diyTrim(' a f b    '))">
+        <input type="button" value="去掉重复" onclick="console.log(removeRepetition('aaabbaa'))">
+    </div>
+</div>
+<div id="t4">
+    <p><-----------N-4------------></p>
+    <div class="n4">
+        <label>Name: <input id="n4Name" type="text"></label>
+        <label>Id: <input id="n4Number" type="number"></label>
+        <input type="button" value="根据输入name找到对应的id" onclick="findIdByName(document.getElementById('n4Name').value)">
+        <input type="button" value="根据输入id找到对应的name" onclick="findNameById(document.getElementById('n4Number').value)">
+        <input type="button" value="前序遍历" onclick="getListWithDLR(tree)">
+        <input type="button" value="中序遍历" onclick="getListWithLDR(tree)">
+        <input type="button" value="后序遍历" onclick="getListWithLRD(tree)">
+    </div>
+</div>
+<div id="t5">
+    <p><-----------N-5------------></p>
+    <div class="n5">
+        <input id="queue-input" type="text">
+        <p id="queue-cont">队列内容：apple-&gt;pear</p>
+        <button id="in-btn" onclick="pushQueue()">入队</button>
+        <button id="out-btn" onclick="popQueue()">出队</button>
+        <button id="font-btn" onclick="showHead()">打印队头元素内容</button>
+        <button id="empty-btn" onclick="isEmpty()">判断队列是否为空</button>
+    </div>
+</div>
+<div id="t6">
+    <p><-----------N-6------------></p>
+    <div class="n6">
+        <button id="sort1-btn" onclick="sort1()">数字小->大</button>
+        <button id="sort2-btn" onclick="sort2()">母顺序a-z</button>
+        <button id="sort3-btn" onclick="sort3()">母顺序z-a</button>
+        <button id="sort4-btn" onclick="sort4()">按照第二个数从大->小</button>
+        <button id="sort5-btn" onclick="sort5()">按元素value值从小->大</button>
+    </div>
+</div>
+<div id="t7">
+    <p><-----------N-7------------></p>
+    <div class="n6">
+        <button id="trans1-btn" onclick="obj2arr()">对象->数组</button>
+        <button id="trans2-btn" onclick="arr2obj()">数组->对象</button>
+    </div>
+</div>
+</body>
+</html>
