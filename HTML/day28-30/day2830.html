@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mydemo2830</title>
+    <style>
+        #t1,#t2{
+            text-align: center;
+        }
+    </style>
+    <script>
+        function puu() {
+            let a = document.getElementById("tt1");
+            let f = event.keyCode;
+            switch (f) {
+                case 37:  console.log("←");
+                    break;
+                case 38:  console.log("↑");
+                    break;
+                case 39:  console.log("→");
+                    break;
+                case 40:  console.log("↓");
+                    break;
+                case 8:  console.log("BackSpace");
+                    break;
+                case 13:  console.log("Enter");
+                    break;
+                default:console.log(a.value[a.value.length-1]);
+                    break;
+            }
+        }
+
+        let email_sug_wrapper=[];
+        let emtail =["163.com","qq.com","126.com"]
+        let mTime = 1;
+
+        function getInputTrim() {
+            console.log(0);
+            let trim = document.getElementById("tt2");
+            console.log(trim.value);
+            if(trim.value[trim.value.length-1] === "@"){
+                if(mTime){
+                    for(let i=0;i<3;i++){
+                        addElementLi(trim.value+emtail[i]);
+                    }
+                    mTime = 0;
+                }
+            }
+            return trim;
+        }
+
+        function addToEmlList() {
+            email_sug_wrapper.push(newEml);
+            console.log("list:"+email_sug_wrapper[0].value);
+            addElementLi(email_sug_wrapper[0].value);
+        }
+        function addElementLi(em) {
+            let dl = document.getElementById("ide");
+            let op = document.createElement("option");
+            op.setAttribute("class", "newli");
+            op.value = em;
+            dl.appendChild(op);
+        }
+
+
+    </script>
+
+</head>
+<body>
+<div id="t1">
+    <h1><--------1---------></h1>
+    <input id="tt1" type="text" onkeyup="puu()">
+</div>
+<div id="t2">
+    <h1><--------2---------></h1>
+    <input id="tt2" type="email" list="ide" onkeyup="getInputTrim()" on>
+    <datalist id="ide">
+        <!--<option value="123@qq.com" />-->
+    </datalist>
+    <input id="login-btn" type="button" value="Login" onclick="addToEmlList()">
+</div>
+
+</body>
+</html>
