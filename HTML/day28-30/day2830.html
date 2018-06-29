@@ -31,20 +31,23 @@
         }
 
         let email_sug_wrapper=[];
-        let emtail =["163.com","qq.com","126.com"]
-        let mTime = 1;
+        let emtail =["163.com","qq.com","126.com"];
+        let mTime = 0;
 
         function getInputTrim() {
             console.log(0);
             let trim = document.getElementById("tt2");
             console.log(trim.value);
+            if(mTime === 2){
+                mTime =  0;
+            }
             if(trim.value[trim.value.length-1] === "@"){
-                if(mTime){
+                if(mTime===0){
                     for(let i=0;i<3;i++){
                         addElementLi(trim.value+emtail[i]);
                     }
-                    mTime = 0;
                 }
+                mTime++;
             }
             return trim;
         }
@@ -73,7 +76,7 @@
 </div>
 <div id="t2">
     <h1><--------2---------></h1>
-    <input id="tt2" type="email" list="ide" onkeyup="getInputTrim()" on>
+    <input id="tt2" type="email" list="ide" onkeyup="getInputTrim()">
     <datalist id="ide">
         <!--<option value="123@qq.com" />-->
     </datalist>
