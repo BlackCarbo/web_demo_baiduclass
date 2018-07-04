@@ -130,6 +130,7 @@ function getDataBySelect(psv,rsv,data) {
 function showNewTable(data, sw, mtype, d1l, d2l) {
     let d = document.getElementById(sw);
     let dt = document.createElement("table");
+    dt.setAttribute("border","1");
     let dtr = document.createElement("tr");
 
     while(d.hasChildNodes()){
