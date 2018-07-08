@@ -36,18 +36,19 @@ let sourceData = [{
     sale: [10, 40, 10, 6, 5, 6, 8, 6, 6, 6, 7, 26]
 }]
 
-let lineMax = 700;
-// console.log(lineMax);
-function selectListener(sw) {
+let lineMax = 700;//最大值
+let mouseOverTime = 1;//鼠标悬停触发事件
+
+function selectListener(sw="table-wrapper-c",isChoose=-1) {
     if(sw === "table-wrapper"){
+        //表一事件
         let rs = document.getElementById("region-select");
         let ps = document.getElementById("product-select");
         let newData = getDataBySelect(ps.value,rs.value,sourceData);
         showNewTable(newData,sw,0,9,10);
-        if(newData.length === 1){
-            drowHistogram(newData[0]);
-        }
+        drowHistogram(newData,isChoose-1);
     }else if(sw === "table-wrapper-c"){
+        //表二事件
         let t1 = 0, t2 = 0;
         let ipt = document.getElementsByTagName("input");
         let data1 = [];
@@ -86,11 +87,11 @@ function selectListener(sw) {
             showNewTable(data3,sw,0,data1.length,data2.length);
         }
         if(data3){
-            drowLineChart(data3);
+            drowLineChart(data3,isChoose-1);
         }
     }
 }
-
+//返回筛选的数据
 function getDataBySelect(psv,rsv,data) {
     let newData = [];
     if(psv === "商品全选" && rsv === "地区全选"){
@@ -134,17 +135,21 @@ function getDataBySelect(psv,rsv,data) {
     }
     return newData;
 }
-
+//绘制表格
 function showNewTable(data, sw, mtype, d1l, d2l) {
     let d = document.getElementById(sw);
     let dt = document.createElement("table");
     dt.setAttribute("border","1");
+    if(sw === "table-wrapper"){
+        dt.setAttribute("id","table_1");
+    }else if(sw === "table-wrapper-c"){
+        dt.setAttribute("id","table_2");
+    }
     let dtr = document.createElement("tr");
-
     while(d.hasChildNodes()){
+        //每次清空
         d.removeChild(d.firstChild);
     }
-
     let dth_p = document.createElement("th");
     let dth_r = document.createElement("th");
     dth_p.innerHTML = "商品";
@@ -163,6 +168,8 @@ function showNewTable(data, sw, mtype, d1l, d2l) {
             let dtr_c = document.createElement("tr");
             let dtd_p = document.createElement("td");
             let dtd_r = document.createElement("td");
+            dtr_c.setAttribute("onmouseover","mouseOverTable(this)");
+            dtr_c.setAttribute("onmouseleave","mouseLeaveTable(this)");
             if(d2l === 9){
                 dtd_p.innerHTML = data[r].product;
                 dtd_r.innerHTML = data[r].region;
@@ -221,6 +228,8 @@ function showNewTable(data, sw, mtype, d1l, d2l) {
             let dtr_c = document.createElement("tr");
             let dtd_p = document.createElement("td");
             let dtd_r = document.createElement("td");
+            dtr_c.setAttribute("onmouseover","mouseOverTable(this)");
+            dtr_c.setAttribute("onmouseleave","mouseLeaveTable(this)");
             dtd_p.innerHTML = data[r].product;
             dtd_r.innerHTML = data[r].region;
             if(mtype){
@@ -250,6 +259,9 @@ function showNewTable(data, sw, mtype, d1l, d2l) {
             let dtr_c = document.createElement("tr");
             let dtd_p = document.createElement("td");
             let dtd_r = document.createElement("td");
+            dtr_c.setAttribute("onmouseover","mouseOverTable(this)");
+            dtr_c.setAttribute("onmouseleave","mouseLeaveTable(this)");
+
             dtd_r.innerHTML = data[r].region;
             dtd_p.innerHTML = data[r].product;
 
@@ -269,12 +281,11 @@ function showNewTable(data, sw, mtype, d1l, d2l) {
     }
     d.appendChild(dt);
 }
-
+//CheckBox选择逻辑
 function changeCheckBox(cb) {
     let ipt = document.getElementsByTagName("input");
     let isAllChecked1 = ipt[1].checked && ipt[2].checked && ipt[3].checked;
     let isAllChecked2 = ipt[5].checked && ipt[6].checked && ipt[7].checked;
-    // console.log(`isAllChecked1:${isAllChecked1}`);
     switch (cb.value) {
         case "商品全选": if(ipt[0].checked){
             ipt[1].checked = true;
@@ -315,4 +326,38 @@ function changeCheckBox(cb) {
         default:
             break;
     }
+}
+//鼠标悬停事件
+function mouseOverTable(thisTr) {
+    let whichTable = thisTr.parentNode.parentNode.id ;
+    if(mouseOverTime === 1){
+        let t = 0;
+        if(whichTable === "table-wrapper"){
+            let thisTable = document.getElementById("table_1");
+            for(;t<thisTable.rows.length;t++){
+                if(thisTr === thisTable.rows[t]){
+                    console.log(t);
+                    break;
+                }
+            }
+        }else if(whichTable === "table-wrapper-c"){
+            let thisTable = document.getElementById("table_2");
+            // console.log(thisTable.rows.length);
+            for(;t<thisTable.rows.length;t++){
+                if(thisTr === thisTable.rows[t]){
+                    console.log(t);
+                    break;
+                }
+            }
+
+        }
+        selectListener(whichTable,t)
+        mouseOverTime = 0;
+    }
+}
+//鼠标离开事件
+function mouseLeaveTable(thisTr){
+    let whichTable = thisTr.parentNode.parentNode.id ;
+    selectListener(whichTable);
+    mouseOverTime = 1;
 }

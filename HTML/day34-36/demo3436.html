@@ -2,32 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>mydemo3436</title>
     <style>
         .box{
             float: left;
-            margin: 20px 20px;
+            margin: 20px 40px;
         }
         .form{
             height: 50px;
+            display: block;
+        }
+        p,select{
+            float: left;
+            margin: 16px 3px;
         }
         svg,canvas{
-            border:1px solid #000000;
+            border:1px solid #0099CC;
             padding: 0 50px
         }
-
+        th,td{
+            min-width: 36px;
+        }
     </style>
     <script src="checkbox.js"></script>
 </head>
 <body>
 <div class="box">
     <div class="form">
+        <p>选择商品：</p>
         <select id="product-select" oninput="selectListener('table-wrapper')">
             <option value="商品全选" selected>商品全选</option>
             <option value="手机">手机</option>
             <option value="笔记本">笔记本</option>
             <option value="智能音箱">智能音箱</option>
         </select>
+        <p>选择地区：</p>
         <select id="region-select" oninput="selectListener('table-wrapper')">
             <option value="地区全选" selected>地区全选</option>
             <option value="华东">华东</option>
@@ -38,15 +47,16 @@
     <svg xmlns="http://www.w3.org/2000/svg" id="chart1" version="1.1" height="400" width="500"></svg>
     <script src="bar.js"></script>
     <div id="table-wrapper"></div>
-
 </div>
 <div class="box">
     <div class="form">
+        选择商品：
         <label>全选<input type="checkbox" value="商品全选" oninput="selectListener('table-wrapper-c')" onclick="changeCheckBox(this)"></label>
         <label>手机<input type="checkbox" value="手机" oninput="selectListener('table-wrapper-c')" onclick="changeCheckBox(this)"></label>
         <label>笔记本<input type="checkbox" value="笔记本" oninput="selectListener('table-wrapper-c')" onclick="changeCheckBox(this)"></label>
         <label>智能音箱<input type="checkbox" value="智能音箱" oninput="selectListener('table-wrapper-c')" onclick="changeCheckBox(this)"></label>
         <br>
+        选择地区：
         <label>全选<input type="checkbox" value="地区全选" oninput="selectListener('table-wrapper-c')" onclick="changeCheckBox(this)"></label>
         <label>华东<input type="checkbox" value="华东" oninput="selectListener('table-wrapper-c')" onclick="changeCheckBox(this)"></label>
         <label>华南<input type="checkbox" value="华南" oninput="selectListener('table-wrapper-c')" onclick="changeCheckBox(this)"></label>
@@ -56,6 +66,5 @@
     <script src="line.js"></script>
     <div id="table-wrapper-c"></div>
 </div>
-
 </body>
 </html>
