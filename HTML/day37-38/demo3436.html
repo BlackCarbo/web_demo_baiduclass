@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mydemo3436</title>
+    <style>
+        body{
+            display: flex;
+        }
+        .box{
+            margin: 20px 50px;
+        }
+        .form{
+            height: 50px;
+            display: block;
+        }
+        p,select{
+            float: left;
+            margin: 16px 3px;
+        }
+        .paint{
+            float: left;
+            display: block;
+        }
+        svg,canvas{
+            border:1px solid #0099CC;
+            margin: 10px 20px;
+            padding: 0 50px
+        }
+        th,td{
+            min-width: 60px;
+            max-height: 8px;
+            padding: 0;
+        }
+        #tips{
+
+        }
+    </style>
+    <script src="checkbox.js"></script>
+</head>
+<body>
+<div class="box">
+    <div class="form">
+        选择商品：
+        <label>全选<input class="chose" type="checkbox" value="商品全选" oninput="selectListener('table-wrapper-c')" onclick="changeCheckBox(this)"></label>
+        <label>手机<input class="chose" type="checkbox" value="手机" oninput="selectListener('table-wrapper-c')" onclick="changeCheckBox(this)"></label>
+        <label>笔记本<input class="chose" type="checkbox" value="笔记本" oninput="selectListener('table-wrapper-c')" onclick="changeCheckBox(this)"></label>
+        <label>智能音箱<input class="chose" type="checkbox" value="智能音箱" oninput="selectListener('table-wrapper-c')" onclick="changeCheckBox(this)"></label>
+        <br>
+        选择地区：
+        <label>全选<input class="chose" type="checkbox" value="地区全选" oninput="selectListener('table-wrapper-c')" onclick="changeCheckBox(this)"></label>
+        <label>华东<input class="chose" type="checkbox" value="华东" oninput="selectListener('table-wrapper-c')" onclick="changeCheckBox(this)"></label>
+        <label>华南<input class="chose" type="checkbox" value="华南" oninput="selectListener('table-wrapper-c')" onclick="changeCheckBox(this)"></label>
+        <label>华北<input class="chose" type="checkbox" value="华北" oninput="selectListener('table-wrapper-c')" onclick="changeCheckBox(this)"></label>
+    </div>
+    <div>
+        <input type="button" value="SAVE" onclick="saveData()">
+        <input type="button" value="ClearLS" onclick="clearLS()">
+    </div>
+    <div class="paint">
+        <svg xmlns="http://www.w3.org/2000/svg" id="chart1" version="1.1" height="400" width="500"></svg>
+        <script src="bar.js"></script>
+    </div>
+   <div class="paint">
+       <canvas id="chart2" height="400" width="500"></canvas>
+       <script src="line.js"></script>
+   </div>
+    <div id="table-wrapper-c"></div>
+</div>
+<div id="tips"></div>
+<div id="isbt"></div>
+</body>
+
+</html>

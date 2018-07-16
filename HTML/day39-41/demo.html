@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demp</title>
+
+</head>
+<body>
+<button id="a" onclick="clicked(this)">A</button>
+<button id="b" onclick="clicked(this)">B</button>
+<button id="c" onclick="clicked(this)">C</button>
+
+<button id="d" onclick="clicked(this)">D</button>
+<button id="e" onclick="clicked(this)">E</button>
+<button id="f" onclick="clicked(this)">F</button>
+
+
+<div id="contABC"></div>
+<div id="contDEF"></div>
+<script>
+    let tempHash="";
+    let temp1=" ",temp2=" ";
+    //解析Hash，获取状态参数
+    function detectHash() {
+        //取到需要的值，并返回
+        // console.log(window.location.hash);
+        let temp = window.location.hash;
+        return temp;
+    }
+    //渲染函数
+    function drowh() {
+        let c = detectHash();
+        document.getElementById("contABC").innerHTML = c.substr(0,1);
+        document.getElementById("contDEF").innerHTML = c.substr(1,2);
+    }
+    //按钮点击事件
+    function clicked(btn){
+        // 设置新的hash
+        // console.log(btn.innerHTML);
+        if(btn.id==="a" || btn.id==="b" || btn.id==="c"){
+            temp1 = btn.innerHTML;
+        }
+        if(btn.id==="d" || btn.id==="e" || btn.id==="f"){
+            temp2 = btn.innerHTML;
+        }
+        tempHash = temp1 + temp2;
+        console.log(`temp1:${temp1}`);
+        console.log(`temp2:${temp2}`);
+        console.log(`tempHash:${tempHash}`);
+        window.location.hash = tempHash;
+        drowh();
+    }
+    window.onhashchange = drowh();
+
+    // 进来先执行一次渲染函数()
+</script>
+</body>
+</html>
